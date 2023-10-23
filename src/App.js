@@ -80,43 +80,8 @@ const emailReg = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
         >
           {errMasg}
         </p>
-        <h1 className="heading">Join us today 👋</h1>
-        <form>
-          <label htmlFor="username">
-            First & Last Name
-            <span className={validName ? "vaild" : "hide"}>
-              <FontAwesomeIcon icon={faCheck} />
-            </span>
-            <span className={validName || !user ? "hide" : "invalid"}>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </label>
-          <input
-            type="text"
-            id="username"
-            placeholder="Hashim"
-            ref={userRef}
-            onChange={(e) => setuser(e.target.value)}
-            autoComplete="off"
-            required
-            aria-invalid={validName ? "false" : "true"}
-            aria-describedby="uidnote"
-            onFocus={() => setuserFoucs(true)}
-            onBlur={() => setuserFoucs(false)}
-          ></input>
-          <p
-            id="uidnote"
-            className={
-              userFoucs && user && !validName ? "instructions " : "offscreen"
-            }
-          >
-            <FontAwesomeIcon icon={faInfoCircle} />
-            4 to 24 characters.
-            <br />
-            Must begin with a letter <br />
-            Must contain at least one number <br />
-          </p>
-        </form>
+        <h1 className="heading">Login with us 🧑‍⚖️ </h1>
+        
         <form>
           <label htmlFor="email">
             Email Address
@@ -185,86 +150,12 @@ const emailReg = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
             <span aria-label="percent">%</span>
           </p>
         </form>
-        <form>
-          <label htmlFor="Confirm_Password">
-            Confirm Password
-            <span
-              className={validmatchPassword && matchPassword ? "vaild" : "hide"}
-            >
-              <FontAwesomeIcon icon={faCheck} />
-            </span>
-            <span
-              className={
-                validmatchPassword || !matchPassword ? "hide" : "invalid"
-              }
-            >
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </label>
-          <input
-            type="password"
-            id="Confrim_Password"
-            placeholder="Confirm Password"
-            ref={userRef}
-            onChange={(e) => setMtchPassword(e.target.value)}
-            required
-            aria-invalid={validPassword ? "false" : "true"}
-            aria-describedby="conf_dnote"
-            onFocus={() => setFoucsMtchPassword(true)}
-            onBlur={() => setFoucsMtchPassword(false)}
-          ></input>
-          <p
-            id="conf_dnote"
-            className={
-              foucsMatchPassword && !validmatchPassword
-                ? "instructions"
-                : "offscreen"
-            }
-          >
-            <FontAwesomeIcon icon={faInfoCircle} />
-            Passwords must match.
-          </p>
-        </form>
-        <form>
-          <label>Date of Birthday </label>
-          <DatePicker selected={selectedDate} onChange={handleDateChange} />
-        </form>
-        <form className="Select_Gender">
-          <label htmlFor="">Select Gender</label>
-          <div className="radios">
-            <div>
-              <input
-                type="radio"
-                name="gender"
-                value="male"
-                checked={gender === "male"}
-                onChange={handleGenderChange}
-              />
-              Male
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="gender"
-                value="female"
-                checked={gender === "female"}
-                onChange={handleGenderChange}
-              />
-              Female
-            </div>
-          </div>
-          <div className="checkbox">
-            <input type="checkbox" id="agree" />
-            <label htmlFor="agree">
-              I agree to <b>terms and conditions</b>
-            </label>
-          </div>
-        </form>
+       
         <div>
-          <button className="button">Create Account</button>
+          <button className="button">Login</button>
         </div>
 
-        <p className="create_ac">Do you have an account? Login</p>
+       
       </section>
     </div>
   );
