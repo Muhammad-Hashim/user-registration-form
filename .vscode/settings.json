@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
     "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}${separator}[Branch: Task-2]",
+=======
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}${separator}[Branch: Task-3]",
+>>>>>>> Stashed changes
     "conventionalCommits.scopes": [
         "Loging"
     ]
