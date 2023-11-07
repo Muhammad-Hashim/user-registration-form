@@ -1,7 +1,7 @@
 
 import { useEffect, useRef, useState } from "react";
-import my from "./f0e61184f4227402b8936b0702f90d20.png";
-import "./App.css";
+import { Link } from "react-router-dom";
+import "./Login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
@@ -12,7 +12,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-function App() {
+function Login() {
   const usernameRegex = /^[a-zA-Z0-9]{3,20}$/;
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -83,42 +83,6 @@ function App() {
         </p>
         <h1 className="heading">Join us today 👋</h1>
         <form>
-          <label htmlFor="username">
-            First & Last Name
-            <span className={validName ? "vaild" : "hide"}>
-              <FontAwesomeIcon icon={faCheck} />
-            </span>
-            <span className={validName || !user ? "hide" : "invalid"}>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </label>
-          <input
-            type="text"
-            id="username"
-            placeholder="Hashim"
-            ref={userRef}
-            onChange={(e) => setuser(e.target.value)}
-            autoComplete="off"
-            required
-            aria-invalid={validName ? "false" : "true"}
-            aria-describedby="uidnote"
-            onFocus={() => setuserFoucs(true)}
-            onBlur={() => setuserFoucs(false)}
-          ></input>
-          <p
-            id="uidnote"
-            className={
-              userFoucs && user && !validName ? "instructions " : "offscreen"
-            }
-          >
-            <FontAwesomeIcon icon={faInfoCircle} />
-            4 to 24 characters.
-            <br />
-            Must begin with a letter <br />
-            Must contain at least one number <br />
-          </p>
-        </form>
-        <form>
           <label htmlFor="email">
             Email Address
             <span className={validEmail ? "vaild" : "hide"}>
@@ -186,89 +150,20 @@ function App() {
             <span aria-label="percent">%</span>
           </p>
         </form>
-        <form>
-          <label htmlFor="Confirm_Password">
-            Confirm Password
-            <span
-              className={validmatchPassword && matchPassword ? "vaild" : "hide"}
-            >
-              <FontAwesomeIcon icon={faCheck} />
-            </span>
-            <span
-              className={
-                validmatchPassword || !matchPassword ? "hide" : "invalid"
-              }
-            >
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </label>
-          <input
-            type="password"
-            id="Confrim_Password"
-            placeholder="Confirm Password"
-            ref={userRef}
-            onChange={(e) => setMtchPassword(e.target.value)}
-            required
-            aria-invalid={validPassword ? "false" : "true"}
-            aria-describedby="conf_dnote"
-            onFocus={() => setFoucsMtchPassword(true)}
-            onBlur={() => setFoucsMtchPassword(false)}
-          ></input>
-          <p
-            id="conf_dnote"
-            className={
-              foucsMatchPassword && !validmatchPassword
-                ? "instructions"
-                : "offscreen"
-            }
-          >
-            <FontAwesomeIcon icon={faInfoCircle} />
-            Passwords must match.
-          </p>
-        </form>
-        <form>
-          <label>Date of Birthday </label>
-          <DatePicker selected={selectedDate} onChange={handleDateChange} />
-        </form>
-        <form className="Select_Gender">
-          <label htmlFor="">Select Gender</label>
-          <div className="radios">
-            <div>
-              <input
-                type="radio"
-                name="gender"
-                value="male"
-                checked={gender === "male"}
-                onChange={handleGenderChange}
-              />
-              Male
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="gender"
-                value="female"
-                checked={gender === "female"}
-                onChange={handleGenderChange}
-              />
-              Female
-            </div>
-          </div>
-          <div className="checkbox">
-            <input type="checkbox" id="agree" />
-            <label htmlFor="agree">
-              I agree to <b>terms and conditions</b>
-            </label>
-          </div>
-        </form>
+
         <div>
-          <button className="button">Create Account</button>
+          <button className="button">sign</button>
         </div>
 
-        <p className="create_ac">Do you have an account? Login</p>
+        <p className="create_ac">
+          Do you don't have an account?{" "}
+          <Link to="/create" className="text-blue-700">
+            Create
+          </Link>
+        </p>
       </section>
     </div>
   );
 }
 
-export default App;
+export default Login;
